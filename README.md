@@ -1,9 +1,9 @@
 # Fruit App (quasar-project)
 
 A Quasar Project developed by:
-- Hugo Ferreira Gabriel Vieira - 12563710
-- João Pedro Ribeiro da Silva - 12563727
-- Mariana Kaori Randig Ekuni - 12675722
+- Hugo Ferreira Gabriel Vieira
+- João Pedro Ribeiro da Silva
+- Mariana Kaori Randig Ekuni
 
 
 ## Install the dependencies
