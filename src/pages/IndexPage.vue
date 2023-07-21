@@ -7,15 +7,27 @@
 </template>
 
 <script>
+import axios from 'axios';
 import FruitCard from "../components/FruitCard.vue";
 
 export default {
+  components: { FruitCard },
+  
   data () {
     return {
       tab: 'image',
+      fruits: []
     }
   },
 
-  components: { FruitCard },
+  mounted() {
+    axios.get('https://localhost:9010/api/fruit/all')
+      .then((response) => {
+        this.fruits = response.data;
+      })
+      .catch((error) => {
+        console.error('Erro na requisição:', error);
+      });
+  },
 }
 </script>
