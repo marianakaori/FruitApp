@@ -1,17 +1,21 @@
 <template>
   <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
+    <fruit-card fruit-name="strawberry"/>
+    <fruit-card fruit-name="strawberry"/>
+    <fruit-card fruit-name="strawberry"/>
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import FruitCard from "../components/FruitCard.vue";
 
-export default defineComponent({
-  name: 'IndexPage'
-})
+export default {
+  data () {
+    return {
+      tab: 'image',
+    }
+  },
+
+  components: { FruitCard },
+}
 </script>
