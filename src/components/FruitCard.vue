@@ -1,7 +1,7 @@
 <template>
     <q-card dark bordered class="bg-blue-9 fruit-card">
         <q-card-section>
-            <div class="text-h6">Strawberry</div>
+            <div class="text-h6">{{fruitObj.name}}</div>
         </q-card-section>
         <q-tab-panels class="fruit-card-tabs" v-model="tab" animated>
         <q-tab-panel name="image" class="fruit-card-image-panel" @click="toggleTab">
@@ -16,7 +16,7 @@
                 </q-item-section>
                 <q-item-section>
                 <q-item-label>Calories</q-item-label>
-                <q-item-label caption>29 cal</q-item-label>
+                <q-item-label caption>{{fruitObj.nutritions.calories}}</q-item-label>
                 </q-item-section>
             </q-item>
 
@@ -26,7 +26,7 @@
                 </q-item-section>
                 <q-item-section>
                 <q-item-label>Carbohydrates</q-item-label>
-                <q-item-label caption>5.5g</q-item-label>
+                <q-item-label caption>{{fruitObj.nutritions.carbohydrates}}</q-item-label>
                 </q-item-section>
             </q-item>
 
@@ -36,7 +36,7 @@
                 </q-item-section>
                 <q-item-section>
                 <q-item-label>Sugar</q-item-label>
-                <q-item-label caption>5.4g</q-item-label>
+                <q-item-label caption>{{fruitObj.nutritions.sugar}}</q-item-label>
                 </q-item-section>
             </q-item>
 
@@ -46,7 +46,7 @@
                 </q-item-section>
                 <q-item-section>
                 <q-item-label>Protein</q-item-label>
-                <q-item-label caption>0.8g</q-item-label>
+                <q-item-label caption>{{fruitObj.nutritions.protein}}</q-item-label>
                 </q-item-section>
             </q-item>
 
@@ -56,7 +56,7 @@
                 </q-item-section>
                 <q-item-section>
                 <q-item-label>Fat</q-item-label>
-                <q-item-label caption>0.4g</q-item-label>
+                <q-item-label caption>{{fruitObj.nutritions.fat}}</q-item-label>
                 </q-item-section>
             </q-item>
             </q-list>
@@ -70,7 +70,9 @@
 
 <script>
   export default {
-    props: ['fruit_name'],
+      props: {
+        fruitObj: undefined,
+      },
     data () {
         return {
             tab: 'image',

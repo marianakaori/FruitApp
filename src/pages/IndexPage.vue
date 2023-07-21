@@ -1,8 +1,10 @@
 <template>
   <q-page class="flex flex-center">
-    <fruit-card fruit-name="strawberry"/>
-    <fruit-card fruit-name="strawberry"/>
-    <fruit-card fruit-name="strawberry"/>
+    <fruit-card 
+      v-for="fruit in fruits"
+        :key = "fruit.id"
+        :fruit-obj="fruit"
+    />
   </q-page>
 </template>
 
@@ -21,7 +23,7 @@ export default {
   },
 
   mounted() {
-    axios.get('https://localhost:9010/api/fruit/all')
+    axios.get('http://localhost:9010/api/fruit/all')
       .then((response) => {
         this.fruits = response.data;
       })
