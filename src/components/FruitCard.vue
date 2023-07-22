@@ -83,6 +83,10 @@
       </q-tab-panel>
     </q-tab-panels>
     <q-card-actions align="right">
+      <!-- Exibe a lista de "likes" dentro de cada card -->
+      <div class="text-h6 clickable-text" @click="showLikes">
+        Likes: {{ getLikesCount(fruitObj.id) }}
+      </div>
       <q-btn
         flat
         round
@@ -90,22 +94,37 @@
         icon="favorite"
         @click="toggleFavorite"
       />
-      <!-- Exibe a lista de "likes" dentro de cada card -->
-      <div class="text-h6">{{ fruitObj.likes }}</div>
     </q-card-actions>
   </q-card>
+  <!-- Modal para exibir os likes -->
+  <q-dialog v-model="showModal">
+    <q-card>
+      <q-card-section>
+        <h2 class="q-mb-md">Likes</h2>
+        <ul>
+          <li v-for="like in likesToShow" :key="like">{{ like }}</li>
+        </ul>
+      </q-card-section>
+      <q-card-actions align="right">
+        <q-btn flat color="primary" label="Fechar" v-close-popup />
+      </q-card-actions>
+    </q-card>
+  </q-dialog>
 </template>
 
 <script>
 export default {
   props: {
     fruitObj: undefined,
+    frutas: undefined,
   },
   data() {
     return {
       tab: "image",
       favorite: false,
       favoriteColor: "white",
+      showModal: false,
+      likesToShow: [],
     };
   },
   methods: {
@@ -124,11 +143,30 @@ export default {
         this.favoriteColor = "white";
       }
     },
+    getLikesCount(id) {
+      const fruta = this.frutas.find((fruta) => fruta.idfruta === id);
+      return fruta ? fruta.likes.length : 0;
+    },
+    showLikes() {
+      const fruta = this.frutas.find(
+        (fruta) => fruta.idfruta === this.fruitObj.id
+      );
+      const likes = fruta ? fruta.likes : [];
+
+      // Atualiza a variável no data para ser usada no modal
+      this.likesToShow = likes;
+
+      // Define o state do modal como "true" para mostrá-lo
+      this.showModal = true;
+    },
   },
 };
 </script>
 
 <style lang="sass" scoped>
+.clickable-text:hover
+    cursor: pointer
+
 .fruit-card
   width: 85%
   margin: 15px 0px

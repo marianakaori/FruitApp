@@ -1,11 +1,18 @@
 <template>
   <q-page class="flex flex-center">
-    <q-input label="Nome do Usuario" v-model="username"> </q-input>
-    <ul>
-      <li v-for="fruta in frutas" :key="fruta.idFruta">{{ fruta.likes }}</li>
-    </ul>
-    <q-btn icon="delete" @click="insereNoBanco">Click</q-btn>
-    <fruit-card v-for="fruit in fruits" :key="fruit.id" :fruit-obj="fruit" />
+    <div v-if="showCards">
+      <fruit-card
+        v-for="fruit in fruits"
+        :key="fruit.id"
+        :fruit-obj="fruit"
+        :frutas="frutas"
+        :username="username"
+      />
+    </div>
+    <div v-else>
+      <q-input label="Nome do Usuario" v-model="username"></q-input>
+      <q-btn @click="mostrarCards">Logar</q-btn>
+    </div>
   </q-page>
 </template>
 
@@ -23,6 +30,9 @@ export default {
       tab: "image",
       fruits: [],
       frutas: [],
+      selectedFruitId: null,
+      username: "",
+      showCards: false,
     };
   },
   methods: {
@@ -44,6 +54,15 @@ export default {
       } catch (error) {
         // Se ocorrer um erro na execução da consulta
         console.error("Erro durante a inserção no banco:", error);
+      }
+    },
+    mostrarCards() {
+      // Verifica se o nome do usuário foi digitado (pode adicionar outras verificações aqui)
+      if (this.username.trim() !== "") {
+        // Mostra os cards ao definir showCards como true
+        this.showCards = true;
+      } else {
+        alert("Por favor, digite o nome do usuário.");
       }
     },
     async getFrutas() {
