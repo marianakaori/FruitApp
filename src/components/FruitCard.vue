@@ -30,7 +30,7 @@
               <q-item-label>Calories</q-item-label>
               <q-item-label caption>{{
                 fruitObj.nutritions.calories
-              }}</q-item-label>
+              }} cal</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -42,7 +42,7 @@
               <q-item-label>Carbohydrates</q-item-label>
               <q-item-label caption>{{
                 fruitObj.nutritions.carbohydrates
-              }}</q-item-label>
+              }} g</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -54,7 +54,7 @@
               <q-item-label>Sugar</q-item-label>
               <q-item-label caption>{{
                 fruitObj.nutritions.sugar
-              }}</q-item-label>
+              }} g</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -66,7 +66,7 @@
               <q-item-label>Protein</q-item-label>
               <q-item-label caption>{{
                 fruitObj.nutritions.protein
-              }}</q-item-label>
+              }} g</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -76,7 +76,7 @@
             </q-item-section>
             <q-item-section>
               <q-item-label>Fat</q-item-label>
-              <q-item-label caption>{{ fruitObj.nutritions.fat }}</q-item-label>
+              <q-item-label caption>{{ fruitObj.nutritions.fat }} g</q-item-label>
             </q-item-section>
           </q-item>
         </q-list>
