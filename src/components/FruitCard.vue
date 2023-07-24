@@ -1,4 +1,4 @@
-<template>
+<template class="flex">
   <q-card dark bordered class="bg-blue-9 fruit-card">
     <q-card-section>
       <div class="text-h6">{{ fruitObj.name }}</div>
@@ -82,7 +82,7 @@
         </q-list>
       </q-tab-panel>
     </q-tab-panels>
-    <q-card-actions align="right">
+    <q-card-actions class="justify-around q-py-md">
       <!-- Exibe a lista de "likes" dentro de cada card -->
       <div class="text-h6 clickable-text" @click="showLikes">
         Likes: {{ fruitLikes.likes.length }}
@@ -226,9 +226,8 @@ export default {
     cursor: pointer
 
 .fruit-card
-  width: 85%
   margin: 15px 0px
-
+  border-radius: 18px
 
 .fruit-card-image-panel
   display: flex
