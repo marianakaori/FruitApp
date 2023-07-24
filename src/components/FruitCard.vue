@@ -106,7 +106,7 @@
         </ul>
       </q-card-section>
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="Fechar" v-close-popup />
+        <q-btn flat color="primary" label="Close" v-close-popup />
       </q-card-actions>
     </q-card>
   </q-dialog>

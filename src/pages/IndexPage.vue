@@ -10,8 +10,8 @@
       />
     </div>
     <div v-else>
-      <q-input label="Nome do Usuario" v-model="username"></q-input>
-      <q-btn @click="mostrarCards">Logar</q-btn>
+      <q-input label="Username" v-model="username"></q-input>
+      <q-btn @click="mostrarCards">Log in</q-btn>
     </div>
   </q-page>
 </template>
@@ -27,7 +27,6 @@ export default {
 
   data() {
     return {
-      tab: "image",
       fruits: [],
       frutas: [],
       selectedFruitId: null,
@@ -38,31 +37,25 @@ export default {
   methods: {
     async insereNoBanco(id) {
       try {
-        // Modificamos o objeto para incluir o id fornecido como parâmetro
         const { data, error } = await supabase
           .from("frutas")
           .insert([{ idfruta: id, likes: [] }]);
 
         if (error) {
-          // Se ocorrer um erro, exiba-o no console ou trate-o de acordo com sua necessidade
           console.error("Erro na inserção:", error);
         } else {
           console.log("Dados inseridos com sucesso:", data);
-          // Atualize a lista de frutas após a inserção, se necessário
-          this.getFrutas();
         }
       } catch (error) {
-        // Se ocorrer um erro na execução da consulta
         console.error("Erro durante a inserção no banco:", error);
       }
     },
     mostrarCards() {
-      // Verifica se o nome do usuário foi digitado (pode adicionar outras verificações aqui)
       if (this.username.trim() !== "") {
         // Mostra os cards ao definir showCards como true
         this.showCards = true;
       } else {
-        alert("Por favor, digite o nome do usuário.");
+        alert("Please, enter a username.");
       }
     },
     async getFrutas() {
@@ -91,14 +84,13 @@ export default {
   },
 
   mounted() {
-    this.getFrutas();
     axios
       .get("http://localhost:9010/api/fruit/all")
       .then((response) => {
         this.fruits = response.data;
 
-        // Chama a função para verificar e inserir os novos registros
         this.verificarEInserirFrutas();
+        this.getFrutas();
       })
       .catch((error) => {
         console.error("Erro na requisição:", error);
