@@ -1,16 +1,24 @@
 <template class="flex">
-  <q-card dark bordered class="bg-blue-9 fruit-card">
-    <q-card-section>
-      <div class="text-h6">{{ fruitObj.name }}</div>
+  <q-card dark bordered class="fruit-card" :style="`background-color: ${fruitObj.image_info.color}`">  
+    <q-card-section class="q-pa-sm flex column">
+      <q-btn class="card-buttons"
+        flat
+        round
+        style="margin-bottom:-20px ;"
+        :icon="favorite? 'favorite' : 'favorite_border'"
+        @click="toggleFavorite"
+      />
+      <div class="text-h5 fruit-name">{{ fruitObj.name }}</div>
     </q-card-section>
-    <q-tab-panels class="fruit-card-tabs" v-model="tab" animated>
+    <q-tab-panels class="fruit-card-tabs" v-model="tab" animated >
       <q-tab-panel
         name="image"
         class="fruit-card-image-panel"
+        :style="`background-color: ${fruitObj.image_info.color}`"
         @click="toggleTab"
       >
         <q-img
-          class="fruit-image"
+          class="q-ma-lg fruit-image"
           :src="fruitObj.image_info.url"
           alt="Strawberry"
         />
@@ -82,17 +90,15 @@
         </q-list>
       </q-tab-panel>
     </q-tab-panels>
-    <q-card-actions class="justify-around q-py-md">
-      <!-- Exibe a lista de "likes" dentro de cada card -->
-      <div class="text-h6 clickable-text" @click="showLikes">
-        Likes: {{ fruitLikes.likes.length }}
+    <q-card-actions class="justify-between q-py-sm q-pl-md">
+      <div class="text-h6 clickable-text fruit-likes" @click="showLikes">
+        {{ fruitLikes.likes.length }} {{ fruitLikes.likes.length == 1 ? ' Like' : ' Likes'}}
       </div>
-      <q-btn
+      <q-btn class="card-buttons"
         flat
         round
-        :style="`color: ${favorite ? fruitObj.image_info.color : 'white'}`"
-        icon="favorite"
-        @click="toggleFavorite"
+        :icon="(this.tab == 'image') ? 'info_outline' : 'o_image'"
+        @click="toggleTab"
       />
     </q-card-actions>
   </q-card>
@@ -226,14 +232,16 @@ export default {
     cursor: pointer
 
 .fruit-card
-  margin: 15px 0px
   border-radius: 18px
+  max-width: 250px
+  min-width: 220px
 
 .fruit-card-image-panel
   display: flex
   justify-content: center
   align-items: center
   padding: 0
+  min-width: 220px
 
 .fruit-card-nutritions-panel
   color: black
@@ -243,4 +251,12 @@ export default {
 
 .fruit-card-tabs
     width: 100%
+
+.fruit-name
+  font-weight: bold
+  align-self: center
+  padding: 10px
+
+.card-buttons
+  align-self: end
 </style>

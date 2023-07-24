@@ -1,6 +1,6 @@
 <template>
-  <q-page class="flex flex-center">
-    <div v-if="showCards">
+  <q-page class="flex flex-center q-mt-lg">
+    <div class="flex-container" v-if="showCards">
       <fruit-card @likes-updated="updateLikes"
         v-for="fruit in fruits"
         :key="fruit.id"
@@ -101,3 +101,13 @@ export default {
   },
 };
 </script>
+
+<style lang="sass" scoped>
+.flex-container
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  gap: 15px
+  justify-content: center
+
+</style>
