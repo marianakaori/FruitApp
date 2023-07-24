@@ -11,7 +11,7 @@
       >
         <q-img
           class="fruit-image"
-          src="https://www.calgiant.com/wp-content/uploads/2021/03/berry-hero-strawberry-individual.png"
+          :src="fruitObj.image_info.url"
           alt="Strawberry"
         />
       </q-tab-panel>
@@ -90,7 +90,7 @@
       <q-btn
         flat
         round
-        :color="favorite ? 'red' : 'white'"
+        :style="`color: ${favorite ? fruitObj.image_info.color : 'white'}`"
         icon="favorite"
         @click="toggleFavorite"
       />
@@ -233,12 +233,13 @@ export default {
   display: flex
   justify-content: center
   align-items: center
+  padding: 0
 
 .fruit-card-nutritions-panel
   color: black
 
 .fruit-image
-    width: 90%
+    width: 100%
 
 .fruit-card-tabs
     width: 100%

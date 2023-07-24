@@ -1,0 +1,216 @@
+{
+	"Guava": {
+		"url": "https://i.imgur.com/q1TH3Ue.png",
+		"color": "#f3ab8b"
+	},
+
+	"Passionfruit": {
+		"url": "https://i.imgur.com/Yz5XLBm.png",
+		"color": "#fbd36c"
+	},
+
+	"Fig": {
+		"url": "https://i.imgur.com/yDlPhsK.png",
+		"color": "#ad8381"
+	},
+
+	"Cherry": {
+		"url": "https://i.imgur.com/XoyjErb.png",
+		"color": "#bf8369"
+	},
+
+	"Persimmon": {
+		"url": "https://i.imgur.com/UJcZ4Dy.png",
+		"color": "#feb156"
+	},
+
+	"Apricot": {
+		"url": "https://i.imgur.com/5j7ZY80.png",
+		"color": "#f6ba67"
+	},
+
+	"Apple": {
+		"url": "https://i.imgur.com/snjlQpD.png",
+		"color": "#dc8078"
+	},
+
+	"Kiwi": {
+		"url": "https://i.imgur.com/SqdTt9V.png",
+		"color": "#b5b768"
+	},
+
+	"Strawberry": {
+		"url": "https://i.imgur.com/aZhVo2c.png",
+		"color": "#fb887a"
+	},
+
+	"Lemon": {
+		"url": "https://i.imgur.com/aQWO9gH.png",
+		"color": "#ffed61"
+	},
+
+	"Mango": {
+		"url": "https://i.imgur.com/gcQUMWv.png",
+		"color": "#ffc453"
+	},
+
+	"GreenApple": {
+		"url": "https://i.imgur.com/33N4V3m.png",
+		"color": "#ffffc6"
+	},
+
+	"Horned Melon": {
+		"url": "https://i.imgur.com/5uF7See.png",
+		"color": "#f6da80"
+	},
+
+	"Raspberry": {
+		"url": "https://i.imgur.com/b64R1xt.png",
+		"color": "#f78e7c"
+	},
+
+	"Melon": {
+		"url": "https://i.imgur.com/WkshrzD.png",
+		"color": "#fff888"
+	},
+
+	"Peach": {
+		"url": "https://i.imgur.com/Mgqtc8j.png",
+		"color": "#ffb98f"
+	},
+
+	"Dragonfruit": {
+		"url": "https://i.imgur.com/SkLsoFF.png",
+		"color": "#f9bebe"
+	},
+
+	"Cranberry": {
+		"url": "https://i.imgur.com/unMzhpU.png",
+		"color": "#c08368"
+	},
+
+	"Pineapple": {
+		"url": "https://i.imgur.com/pyzraIk.png",
+		"color": "#dbc57d"
+	},
+
+	"Tangerine": {
+		"url": "https://i.imgur.com/zZxFH5Z.png",
+		"color": "#ffbf57"
+	},
+
+	"Grape": {
+		"url": "https://i.imgur.com/iCwn2NQ.png",
+		"color": "#a9726e"
+	},
+
+	"Pomegranate": {
+		"url": "https://i.imgur.com/P79g5rP.png",
+		"color": "#ee8080"
+	},
+
+	"Feijoa": {
+		"url": "https://i.imgur.com/9Z6gNnZ.png",
+		"color": "#b7ca83"
+	},
+
+	"default": {
+		"url": "https://i.imgur.com/4C9qHlC.png",
+		"color": "#c6ad82"
+	},
+
+	"Plum": {
+		"url": "https://i.imgur.com/gAs1iOw.png",
+		"color": "#b9a27c"
+	},
+
+	"Blackberry": {
+		"url": "https://i.imgur.com/kw7TJvO.png",
+		"color": "#88897f"
+	},
+
+	"Pear": {
+		"url": "https://i.imgur.com/RR7RXwq.png",
+		"color": "#f1e3aa"
+	},
+
+	"Durian": {
+		"url": "https://i.imgur.com/RkgQT8B.png",
+		"color": "#eccc86"
+	},
+
+	"Watermelon": {
+		"url": "https://i.imgur.com/FAR6T2u.png",
+		"color": "#e39a6f"
+	},
+
+	"Pitahaya": {
+		"url": "https://i.imgur.com/fntSqrg.png",
+		"color": "#e16c79"
+	},
+
+	"Tomato": {
+		"url": "https://i.imgur.com/4aVepUX.png",
+		"color": "#ff8a6b"
+	},
+
+	"Jackfruit": {
+		"url": "https://i.imgur.com/1415gyV.png",
+		"color": "#f2e04f"
+	},
+
+	"Lychee": {
+		"url": "https://i.imgur.com/bRc0ITg.png",
+		"color": "#f0b7b4"
+	},
+
+	"Blueberry": {
+		"url": "https://i.imgur.com/sSefz25.png",
+		"color": "#80959e"
+	},
+
+	"Papaya": {
+		"url": "https://i.imgur.com/W6wwMQi.png",
+		"color": "#f5a45b"
+	},
+
+	"Banana": {
+		"url": "https://i.imgur.com/OzsO2qa.png",
+		"color": "#ffd771"
+	},
+
+	"Avocado": {
+		"url": "https://i.imgur.com/QwS785X.png",
+		"color": "#abad82"
+	},
+
+	"Lingonberry": {
+		"url": "https://i.imgur.com/4XYCFrT.png",
+		"color": "#c96862"
+	},
+
+	"Lime": {
+		"url": "https://i.imgur.com/Jn0aZvd.png",
+		"color": "#c5e67a"
+	},
+
+	"Gooseberry": {
+		"url": "https://i.imgur.com/gvJ5qsk.png",
+		"color": "#dcf474"
+	},
+
+	"Kiwifruit": {
+		"url": "https://i.imgur.com/H2yUpPZ.png",
+		"color": "#b5b768"
+	},
+
+	"Morus": {
+		"url": "https://i.imgur.com/wUsKqFt.png",
+		"color": "#9f8680"
+	},
+
+	"Orange": {
+		"url": "https://i.imgur.com/P8TPHPp.png",
+		"color": "#eea65a"
+	}
+}
