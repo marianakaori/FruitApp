@@ -85,12 +85,12 @@
     <q-card-actions align="right">
       <!-- Exibe a lista de "likes" dentro de cada card -->
       <div class="text-h6 clickable-text" @click="showLikes">
-        Likes: {{ getLikesCount(fruitObj.id) }}
+        Likes: {{ fruitLikes.likes.length }}
       </div>
       <q-btn
         flat
         round
-        :color="favoriteColor"
+        :color="favorite ? 'red' : 'white'"
         icon="favorite"
         @click="toggleFavorite"
       />
@@ -102,7 +102,7 @@
       <q-card-section>
         <h2 class="q-mb-md">Likes</h2>
         <ul>
-          <li v-for="like in likesToShow" :key="like">{{ like }}</li>
+          <li v-for="like in fruitLikes.likes" :key="like">{{ like }}</li>
         </ul>
       </q-card-section>
       <q-card-actions align="right">
@@ -113,18 +113,22 @@
 </template>
 
 <script>
+import { supabase } from "../lib/supabaseClient";
+
 export default {
+  emits: {
+    likesUpdated: null,
+  },
   props: {
     fruitObj: undefined,
-    frutas: undefined,
+    fruitLikes: undefined,
+    username: undefined,
   },
   data() {
     return {
       tab: "image",
       favorite: false,
-      favoriteColor: "white",
       showModal: false,
-      likesToShow: [],
     };
   },
   methods: {
@@ -137,28 +141,82 @@ export default {
     },
     toggleFavorite() {
       this.favorite = !this.favorite;
+      const fruitLikesCopy = [...this.fruitLikes.likes]
+
       if (this.favorite) {
-        this.favoriteColor = "red";
-      } else {
-        this.favoriteColor = "white";
+        fruitLikesCopy.push(this.username)
+        this.$emit('likesUpdated', this.fruitObj.id, fruitLikesCopy);
+        
+        this.updateLikes('adicionar');
+      } 
+      
+      else {
+        const indiceDelete = fruitLikesCopy.indexOf(this.username);
+        if(indiceDelete != -1){
+          fruitLikesCopy.splice(indiceDelete, 1);
+        }
+        this.$emit('likesUpdated', this.fruitObj.id, fruitLikesCopy);
+
+        this.updateLikes('deletar');
       }
     },
-    getLikesCount(id) {
-      const fruta = this.frutas.find((fruta) => fruta.idfruta === id);
-      return fruta ? fruta.likes.length : 0;
+    updateLikes(operacao) {
+      try {
+          // busca os likes da fruta
+          supabase
+          .from("frutas")
+          .select("*")
+          .eq("idfruta", this.fruitObj.id)
+          .then((response) => {
+            const { data, error } = response;
+            if (error) {
+              console.error("Erro na busca:", error);
+            } else {
+              const newLikes = data[0].likes;
+
+              // confere se o like deve ser apagado ou adicionado 
+              if (operacao === 'deletar'){
+                const indiceDelete = newLikes.indexOf(this.username);
+                if(indiceDelete != -1){
+                  newLikes.splice(indiceDelete, 1);
+                }
+              } else if (operacao === 'adicionar') {
+                newLikes.push(this.username)
+              } else {
+                return
+              }
+
+              // atualiza os likes no banco adicionando ou removendo a curtida atual
+              supabase
+              .from("frutas")
+              .update({ likes: newLikes })
+              .eq("idfruta", this.fruitObj.id)
+              .then((response) => {
+                const { data, error } = response;
+                if (error) {
+                console.error("Erro na inserção:", error);
+                } else {
+                  console.log("Dados atualizados com sucesso:", data);
+                }
+              });
+            }
+          })
+        } catch (error) {
+          console.error("Erro durante a atualização no banco:", error);
+        }
+    },
+    checkUserLikes() {
+      if(this.fruitLikes.likes.includes(this.username)){
+        this.favorite = true;
+      }
     },
     showLikes() {
-      const fruta = this.frutas.find(
-        (fruta) => fruta.idfruta === this.fruitObj.id
-      );
-      const likes = fruta ? fruta.likes : [];
-
-      // Atualiza a variável no data para ser usada no modal
-      this.likesToShow = likes;
-
-      // Define o state do modal como "true" para mostrá-lo
       this.showModal = true;
     },
+  },
+
+  mounted() {
+    this.checkUserLikes();
   },
 };
 </script>

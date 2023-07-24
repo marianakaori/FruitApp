@@ -1,12 +1,12 @@
 <template>
   <q-page class="flex flex-center">
     <div v-if="showCards">
-      <fruit-card
+      <fruit-card @likes-updated="updateLikes"
         v-for="fruit in fruits"
         :key="fruit.id"
         :fruit-obj="fruit"
-        :frutas="frutas"
         :username="username"
+        :fruit-likes="frutas.find((fruta) => fruta.idfruta === fruit.id)"
       />
     </div>
     <div v-else>
@@ -81,6 +81,9 @@ export default {
         }
       }
     },
+    updateLikes(fruitId, newLikes) {
+      this.frutas.find((fruta) => fruta.idfruta === fruitId).likes = newLikes;
+    }
   },
 
   mounted() {
