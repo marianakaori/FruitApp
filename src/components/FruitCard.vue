@@ -1,5 +1,8 @@
 <template class="flex">
-  <q-card dark bordered class="fruit-card" :style="`background-color: ${fruitObj.image_info.color}`">  
+  <q-card dark bordered class="fruit-card"
+  :style="
+    `background-color: ${fruitObj.image_info.color};
+     display: ${this.show ? 'block' : 'none'};`">  
     <q-card-section class="q-pa-sm flex column">
       <q-btn class="card-buttons"
         flat
@@ -20,7 +23,7 @@
         <q-img
           class="q-ma-lg fruit-image"
           :src="fruitObj.image_info.url"
-          alt="Strawberry"
+          :alt="fruitObj.name"
         />
       </q-tab-panel>
 
@@ -127,6 +130,7 @@ export default {
     fruitObj: undefined,
     fruitLikes: undefined,
     username: undefined,
+    show: undefined,
   },
   data() {
     return {
