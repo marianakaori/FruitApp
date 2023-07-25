@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center q-mt-lg">
     <div class="flex-container" v-if="showCards">
+      <h3 class="titulo">Check the nutritional value of your favorite fruits</h3>
       <fruit-card @likes-updated="updateLikes"
         v-for="fruit in fruits"
         :key="fruit.id"
@@ -110,4 +111,10 @@ export default {
   gap: 15px
   justify-content: center
 
+.titulo
+  color: $text
+  font-size: 30px
+  line-height: 2rem
+  width: 90%
+  text-align: center
 </style>
