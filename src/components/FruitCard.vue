@@ -108,14 +108,12 @@
   <!-- Modal para exibir os likes -->
   <q-dialog v-model="showModal">
     <q-card>
-      <q-card-section>
-        <h2 class="q-mb-md">Likes</h2>
-        <ul>
-          <li v-for="like in fruitLikes.likes" :key="like">{{ like }}</li>
-        </ul>
+      <q-card-section style="padding: 16px 16px; width: 200px;">
+        <h5 style="color: #220343; margin-top: 16px;" class="q-mb-md">Liked by</h5>
+        <div class="liked-by" v-for="like in fruitLikes.likes" :key="like">{{ like }}</div>
       </q-card-section>
       <q-card-actions align="right">
-        <q-btn flat color="primary" label="Close" v-close-popup />
+        <q-btn style="background: #ead8f2; color: #220343 "  label="Close" v-close-popup />
       </q-card-actions>
     </q-card>
   </q-dialog>
@@ -263,4 +261,11 @@ export default {
 
 .card-buttons
   align-self: end
+
+.liked-by
+  color: $text
+  border-top: 1px solid pink
+
+.liked-by:last-child
+  border-bottom: 1px solid pink
 </style>

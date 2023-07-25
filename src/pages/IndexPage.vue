@@ -1,6 +1,7 @@
 <template>
   <q-page class="flex flex-center q-mt-lg">
     <template v-if="showCards">
+      <h3 class="titulo">Check the nutritional value of your favorite fruits</h3>
       <div class="filter-container">
         <q-input style="width: 80%;" label="Search a fruit" v-model="searchStr"></q-input>
       </div>
@@ -175,4 +176,11 @@ export default {
   width: 100%
   justify-content: center
   margin-bottom: 10px
+  
+.titulo
+  color: $text
+  font-size: 30px
+  line-height: 2rem
+  width: 90%
+  text-align: center
 </style>
